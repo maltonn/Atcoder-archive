@@ -1,0 +1,1 @@
+print('A'+'BR'[input()=='ABC']+'C')
