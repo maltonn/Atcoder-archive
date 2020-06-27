@@ -1,4 +1,4 @@
-def main():
+def main():#WA
     import sys
     import heapq
     from collections import defaultdict
