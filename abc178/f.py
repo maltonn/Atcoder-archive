@@ -59,16 +59,33 @@ def main():#WA(only 1)
     idx=0
     midx=1
     for n in K2[start:]:
-        if K[not_yet[idx]]==n:
-            L[not_yet[-midx]]=n
-            midx+=1
-        else:
-            L[not_yet[idx]]=n
-            idx+=1
-    
+        L[not_yet[idx]]=n
+        idx+=1
+
+
+    ### after contest 
+    from random import randint
+    for i in range(N):
+        if L[i]==K[i]:
+            while True:
+                r=randint(1,N-1)
+                if L[r]!=K[i] and L[i]!=K[r]:
+                    L[r],L[i]=L[i],L[r]
+                    break     
+    ###
+
+
     tmp=sorted([(x,y) for x,y in zip(K,L)],key=lambda x:x[0])
     out=[y for x,y in tmp]
-        
+
+    ###
+    if set(B)!=set(out): #RE
+        err
+    ###
+
     print('Yes')
     print(' '.join(map(str,out)))
+
+
+
 main()
